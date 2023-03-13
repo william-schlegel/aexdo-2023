@@ -1,0 +1,44 @@
+---
+import type { TMenu } from "../types";
+import BtnDemo from "./BtnDemo.astro";
+import MenuOption from "./MenuOption.astro";
+
+const MENU: TMenu[] = [
+  {
+    label: "Fonctions",
+    options: [
+      { label: "Appliction mobile", link: "/functions/mobile" },
+
+      { label: "Importation de projets", link: "/functions/import" },
+      { label: "Description des projets", link: "/functions/description" },
+      { label: "Visualisation de la pollution", link: "/functions/pollution" },
+    ],
+  },
+  {
+    label: "Solutions",
+    options: [
+      { label: "Reprendre vos anciens dossiers", link: "/solutions/import" },
+      { label: "Expliquer la pollution du sol", link: "/solutions/explain" },
+      { label: "Evaluer le cout de dépollution", link: "/solutions/evaluate" },
+      { label: "Simuler des options", link: "/solutions/simulate" },
+    ],
+  },
+  {
+    label: "Ressources",
+    options: [
+      { label: "Vidéos", link: "ressources/videos" },
+      { label: "Cas d'usage", link: "ressources/usecase" },
+      { label: "Comment faire ?", link: "ressources/howto" },
+      { label: "FAQ", link: "ressources/faq" },
+    ],
+  },
+  { label: "Blog" },
+];
+---
+
+<div
+  class="gap-4 items-center bg-aexdo text-white grid grid-cols-5 max-w-3xl absolute top-0 right-0"
+>
+  {MENU.map((menu) => <MenuOption menu={menu} />)}
+  <BtnDemo variant={"menu"} />
+</div>
