@@ -6,15 +6,17 @@ import { Image } from "astro:assets";
 import heroImage from "../assets/hero.jpg";
 import logo from "../assets/logo.png";
 import BtnDemo from "../components/BtnDemo.astro";
+import Section1 from "../components/section1.astro";
+import Section2 from "../components/section2.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="max-w-6xl mx-auto relative">
     <div class="grid grid-cols-[auto,1fr]">
-      <div class="flex flex-col justify-between bg-white">
+      <div class="flex flex-col justify-between bg-base-100">
         <Image src={logo} width={120} alt="Logo AEXDO" class="p-4" />
         <div
-          class="bg-aexdo text-white h-36 px-8 text-6xl grid place-items-center"
+          class="bg-aexdo text-aexdo-content h-36 px-8 text-6xl grid place-items-center"
         >
           <i class="bx bx-data"></i>
         </div>
@@ -25,7 +27,7 @@ import BtnDemo from "../components/BtnDemo.astro";
           alt="Jeune femme Zen parce qu'elle utilise AEXDO"
         />
         <div
-          class="absolute bg-aexdo/50 text-white text-3xl bottom-0 left-0 w-1/2 h-36 pl-4 pr-8 flex items-center"
+          class="absolute bg-aexdo/70 text-aexdo-content text-3xl bottom-0 left-0 w-2/3 h-36 pl-4 gap-4 flex items-center"
         >
           <h1>Le premier service de digitalisation des sols pollués</h1>
           <BtnDemo variant={"cta"} />
@@ -33,5 +35,7 @@ import BtnDemo from "../components/BtnDemo.astro";
       </div>
     </div>
     <Header />
+    <Section1 />
+    <Section2 />
   </main>
 </Layout>

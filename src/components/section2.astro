@@ -1,0 +1,52 @@
+---
+import type { TActor } from "../types";
+import Actors from "./Actors";
+
+type TDataSection2 = {
+  title: string;
+  description: string;
+  image: string;
+  actors: TActor[];
+};
+
+const data: TDataSection2[] = [
+  {
+    title: "Vous êtes un constructeur",
+    description:
+      "Vous avez accès à une de visualisations sur un écran, pour comprendre rapidement la nature de la pollution. Les calculs de volumétrie sont faits instantanément et évoluent en fonction des modifications du projet.",
+    image: "/desktop/dashboard.png",
+    actors: [
+      {
+        name: "Bureau d'études",
+        description:
+          "Vous gérez toute la partie technique des projets, de la collection des données à leur mise en forme, et vous devez ensuite l’expliquer aux autres acteurs",
+      },
+      {
+        name: "Entreprise de dépollution",
+        description:
+          "Vous avez des solutions pour traiter les sols pollués et vous avez bzsoin d'un diagnostique complet sur ce qui se trouve dans le terrain",
+      },
+      {
+        name: "Entreprise générale",
+        description:
+          "Pour planifier les travaux, vous avez besoin d'une vision par couche des matériaux et des polluants du sous sol, ainsi que les volumes réutilisables",
+      },
+    ],
+  },
+];
+---
+
+<section class="bg-base-200 p-24 space-y-4">
+  {
+    data.map((d) => (
+      <article class="space-6">
+        <h2 class="text-aexdo text-3xl font-semibold py-6">{d.title}</h2>
+        <div class="grid grid-cols-[2fr,3fr]">
+          <Actors client:load actors={d.actors} />
+          <img src={d.image} alt="" width="600" height="400" />
+        </div>
+        <p class="mt-8">{d.description}</p>
+      </article>
+    ))
+  }
+</section>

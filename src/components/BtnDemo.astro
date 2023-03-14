@@ -9,11 +9,9 @@ const { variant } = Astro.props;
 
 <a
   href="/contact"
-  class={`bg-white text-gray-900 grid place-items-center text-center font-semibold px-4 py-2 ${
-    variant === "menu"
-      ? ""
-      : "absolute right-0 bottom-0 w-48 text-base leading-none"
-  }`}
+  class={`bg-base-100 text-gray-900 grid place-items-center text-center cursor-pointer font-semibold px-4 py-2 ${
+    variant === "menu" ? "" : "w-48 mt-auto text-base"
+  } hover:bg-base-100/80`}
 >
   {label}
 </a>

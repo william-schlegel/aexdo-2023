@@ -1,0 +1,25 @@
+---
+const title =
+  "Face à l’augmentation du volume et de la complexité des informations sur la pollution des sols, nous vous offrons :";
+const data = [
+  { icon: "bx-desktop", label: "Une solution 100% digitale" },
+  { icon: "bx-group", label: "Accessible à tous les acteurs de votre projet" },
+  { icon: "bx-time", label: "Pour vous faire gagner du temps et de l’argent" },
+  { icon: "bx-search", label: "Avec des données fiables" },
+  { icon: "bx-chat", label: "Et des échanges facilités" },
+];
+---
+
+<section class="bg-base-100 p-24 space-y-4">
+  <h2 class="text-4xl text-center py-8">{title}</h2>
+  <div class="grid grid-cols-[auto,1fr] gap-8 items-center">
+    {
+      data.map((d) => (
+        <>
+          <i class={`bx ${d.icon} text-6xl text-aexdo`} />
+          <span class="text-3xl">{d.label}</span>
+        </>
+      ))
+    }
+  </div>
+</section>

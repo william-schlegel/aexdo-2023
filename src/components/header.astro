@@ -1,7 +1,7 @@
 ---
 import type { TMenu } from "../types";
 import BtnDemo from "./BtnDemo.astro";
-import MenuOption from "./MenuOption.astro";
+import MenuOption from "./MenuOption";
 
 const MENU: TMenu[] = [
   {
@@ -32,13 +32,16 @@ const MENU: TMenu[] = [
       { label: "FAQ", link: "ressources/faq" },
     ],
   },
-  { label: "Blog" },
+  {
+    label: "Blog",
+    link: "/blog",
+  },
 ];
 ---
 
-<div
-  class="gap-4 items-center bg-aexdo text-white grid grid-cols-5 max-w-3xl absolute top-0 right-0"
+<nav
+  class="gap-4 items-stretch bg-aexdo grid grid-cols-5 max-w-3xl absolute top-0 right-0"
 >
-  {MENU.map((menu) => <MenuOption menu={menu} />)}
+  {MENU.map((menu) => <MenuOption client:load menu={menu} />)}
   <BtnDemo variant={"menu"} />
-</div>
+</nav>
