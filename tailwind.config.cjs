@@ -8,7 +8,7 @@ module.exports = {
         "base-100": "#fff",
         "base-200": "#ddd",
         "base-300": "#bbb",
-        "aexdo-content": "#eeeeee",
+        "aexdo-content": "#eee",
       },
     },
   },

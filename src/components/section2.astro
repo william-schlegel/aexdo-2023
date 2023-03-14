@@ -33,10 +33,56 @@ const data: TDataSection2[] = [
       },
     ],
   },
+  {
+    title: "Vous êtes une société dans l'immobilier",
+    description:
+      "AEXDO vous permet une compréhension rapide des données et des enjeux environnementaux. Un prescripteur a la possibilité tout au long de la vie du projet de distribuer à ses partenaires des actions à mener pour un chantier.",
+    image: "/desktop/data-creation-probing.png",
+    actors: [
+      {
+        name: "Promoteurs, investisseurs, bailleurs sociaux",
+        description:
+          "Vous avez besoin de savoir le coût de la dépollution du terrain de votre projet",
+      },
+      {
+        name: "Collectivités - SEM - EPF - Industriels",
+        description:
+          "Vous devez comprendre la pollution de votre terrain pour mieux l'estimer et éviter les mauvaises surprises",
+      },
+      {
+        name: "AMO - Experts - Conseils",
+        description:
+          "Vous cherchez à minimiser le cout de dépollution et vous avez besoin de données fiables",
+      },
+    ],
+  },
+  {
+    title: "Vous êtes spécialiste des sols pollués",
+    description:
+      "L'outil vous permet de synthétiser rapidement les données. Il génère instantanément l’ensemble des annexes des rapports et permet de les faire évoluer tout au long du projet sans aucun impact de temps de réalisation.",
+    image: "/desktop/voronoi-3d-g.png",
+    actors: [
+      {
+        name: "Bureau d'études",
+        description:
+          "Vous gérez toute la partie technique des projets, de la collection des données à leur mise en forme, et vous devez ensuite l’expliquer aux autres acteurs",
+      },
+      {
+        name: "Entreprise de dépollution",
+        description:
+          "Vous voulez proposer les meilleurs produits et votre expertise aux promoteurs en fonction de leurs données de polution",
+      },
+      {
+        name: "Filières de traitement",
+        description:
+          "Vous voulez faire vos devis de la manière la plus automatisée possible en récupérant automatiquement les volumes et les niveaux de polution des terrains",
+      },
+    ],
+  },
 ];
 ---
 
-<section class="bg-base-200 p-24 space-y-4">
+<section class="bg-base-200 p-24 space-y-12">
   {
     data.map((d) => (
       <article class="space-6">
@@ -49,4 +95,21 @@ const data: TDataSection2[] = [
       </article>
     ))
   }
+  <div class="w-11/12 mx-auto">
+    <div class="bg-base-100 p-12 grid grid-cols-[1fr,13rem] shadow">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">
+          Reprenez le contrôle de vos données
+        </h3>
+        <p>
+          Importez vos dossiers existants dans AEXDO et entrez dans une nouvelle
+          dimension
+        </p>
+      </div>
+      <a
+        class="bg-aexdo text-aexdo-content font-semibold text-center px-8 py-4 rounded-full place-self-center"
+        href="/contact">Demander une démonstration</a
+      >
+    </div>
+  </div>
 </section>

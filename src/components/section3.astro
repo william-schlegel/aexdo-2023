@@ -1,0 +1,55 @@
+---
+import { getImage } from "astro:assets";
+
+import image from "../assets/papers.jpg";
+const bgImage = await getImage({
+  src: image,
+  format: "jpeg",
+  height: 800,
+});
+
+const caseStudies = [
+  {
+    logo: "/logos/ect.png",
+    title: "Reprise d’anciens dossiers",
+    brief:
+      "Nous avons repris un ensemble de dossiers “papier” afin de les rendre intelligibles pour tous les acteurs des projets en quelques clicks",
+    link: "/ressources/usecase/ect",
+  },
+];
+
+const caseStudy = caseStudies[Math.floor(Math.random() * caseStudies.length)];
+---
+
+<section
+  class="py-24"
+  style={{
+    backgroundImage:
+      "linear-gradient(90deg, #eee, #eee 30%,#eb6547 30%, #eb6547 70%)",
+  }}
+>
+  <div class="py-12 flex justify-end items-center relative">
+    <div
+      class="bg-cover absolute left-0 w-2/3 h-full"
+      style={`background: url(${bgImage.src}) center no-repeat`}
+    >
+    </div>
+    <div class="bg-base-100 p-12 w-1/3 mr-24 space-y-8 shadow z-10">
+      <img src={caseStudy.logo} />
+      <h3 class="text-2xl font-bold mb-4">{caseStudy.title}</h3>
+      <p>{caseStudy.brief}</p>
+      <div class="text-right">
+        <a
+          href={caseStudy.link}
+          class="bg-aexdo text-aexdo-content font-semibold text-center px-8 py-4 rounded-full"
+          >En savoir plus</a
+        >
+      </div>
+    </div>
+    <h3
+      class="absolute text-aexdo-content right-0 bottom-56 m-0 text-6xl -rotate-90 origin-right"
+    >
+      Etude de cas
+    </h3>
+  </div>
+</section>

@@ -12,7 +12,7 @@ function Actors({ actors }: Props) {
         <button
           key={idx}
           className={`px-8 py-4 text-start rounded-3xl w-full ${
-            idx === selected ? "bg-base-100" : "hover:bg-base-100/20"
+            idx === selected ? "bg-base-100 shadow-lg" : "hover:bg-base-100/20"
           } `}
           onClick={() => setSelected(idx)}
         >
