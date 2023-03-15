@@ -8,6 +8,8 @@ module.exports = {
         "base-100": "#fff",
         "base-200": "#ddd",
         "base-300": "#bbb",
+        "base-900": "#444",
+        "base-900-content": "#eee",
         "aexdo-content": "#eee",
       },
     },

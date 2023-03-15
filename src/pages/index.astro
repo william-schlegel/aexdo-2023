@@ -9,15 +9,18 @@ import BtnDemo from "../components/BtnDemo.astro";
 import Section1 from "../components/section1.astro";
 import Section2 from "../components/section2.astro";
 import Section3 from "../components/section3.astro";
+import Footer from "../components/footer.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="">
   <main class="max-w-6xl mx-auto relative">
-    <div class="grid grid-cols-[auto,1fr]">
-      <div class="flex flex-col justify-between bg-base-100">
+    <div class="lg:grid lg:grid-cols-[auto,1fr]">
+      <div
+        class="absolute left-0 top-0 z-10 lg:relative lg:flex lg:flex-col lg:justify-between lg:bg-base-100"
+      >
         <Image src={logo} width={120} alt="Logo AEXDO" class="p-4" />
         <div
-          class="bg-aexdo text-aexdo-content h-36 px-8 text-6xl grid place-items-center"
+          class="bg-aexdo text-aexdo-content h-36 px-8 text-6xl hidden lg:grid lg:place-items-center"
         >
           <i class="bx bx-data"></i>
         </div>
@@ -28,7 +31,7 @@ import Section3 from "../components/section3.astro";
           alt="Jeune femme Zen parce qu'elle utilise AEXDO"
         />
         <div
-          class="absolute bg-aexdo/70 text-aexdo-content text-3xl bottom-0 left-0 w-2/3 h-36 pl-4 gap-4 flex items-center"
+          class="absolute bg-aexdo/70 text-aexdo-content text-xl lg:text-3xl bottom-0 left-0 w-full lg:w-2/3 h-36 pl-4 gap-4 flex items-center justify-between"
         >
           <h1>Le premier service de digitalisation des sols pollués</h1>
           <BtnDemo variant={"cta"} />
@@ -40,4 +43,5 @@ import Section3 from "../components/section3.astro";
     <Section2 />
     <Section3 />
   </main>
+  <Footer />
 </Layout>

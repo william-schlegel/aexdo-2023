@@ -82,12 +82,12 @@ const data: TDataSection2[] = [
 ];
 ---
 
-<section class="bg-base-200 p-24 space-y-12">
+<section class="bg-base-200 p-8 lg:p-24 space-y-12">
   {
     data.map((d) => (
       <article class="space-6">
         <h2 class="text-aexdo text-3xl font-semibold py-6">{d.title}</h2>
-        <div class="grid grid-cols-[2fr,3fr]">
+        <div class="grid lg:grid-cols-[2fr,3fr]">
           <Actors client:load actors={d.actors} />
           <img src={d.image} alt="" width="600" height="400" />
         </div>
@@ -96,7 +96,9 @@ const data: TDataSection2[] = [
     ))
   }
   <div class="w-11/12 mx-auto">
-    <div class="bg-base-100 p-12 grid grid-cols-[1fr,13rem] shadow">
+    <div
+      class="bg-base-100 p-4 lg:p-12 grid gap-8 lg:grid-cols-[1fr,13rem] shadow"
+    >
       <div>
         <h3 class="text-2xl font-bold mb-4">
           Reprenez le contrôle de vos données

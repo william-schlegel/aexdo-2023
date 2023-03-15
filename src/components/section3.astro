@@ -22,34 +22,29 @@ const caseStudy = caseStudies[Math.floor(Math.random() * caseStudies.length)];
 ---
 
 <section
-  class="py-24"
-  style={{
-    backgroundImage:
-      "linear-gradient(90deg, #eee, #eee 30%,#eb6547 30%, #eb6547 70%)",
-  }}
+  class="relative p-12 lg:p-24 lg:pl-[50%]"
+  style={`background-image: linear-gradient(90deg, #eee, #eee 30%, #eb6547 30%, #eb6547 70%);`}
 >
-  <div class="py-12 flex justify-end items-center relative">
-    <div
-      class="bg-cover absolute left-0 w-2/3 h-full"
-      style={`background: url(${bgImage.src}) center no-repeat`}
-    >
+  <div
+    class="absolute hidden lg:block top-12 bottom-12 left-0 w-2/3"
+    style={`background: url(${bgImage.src}) center no-repeat`}
+  >
+  </div>
+  <div class="relative bg-base-100 p-12 space-y-8 shadow z-10">
+    <img src={caseStudy.logo} />
+    <h3 class="text-2xl font-bold mb-4">{caseStudy.title}</h3>
+    <p>{caseStudy.brief}</p>
+    <div class="text-right">
+      <a
+        href={caseStudy.link}
+        class="bg-aexdo text-aexdo-content font-semibold text-center px-8 py-4 rounded-full"
+        >En savoir plus</a
+      >
     </div>
-    <div class="bg-base-100 p-12 w-1/3 mr-24 space-y-8 shadow z-10">
-      <img src={caseStudy.logo} />
-      <h3 class="text-2xl font-bold mb-4">{caseStudy.title}</h3>
-      <p>{caseStudy.brief}</p>
-      <div class="text-right">
-        <a
-          href={caseStudy.link}
-          class="bg-aexdo text-aexdo-content font-semibold text-center px-8 py-4 rounded-full"
-          >En savoir plus</a
-        >
-      </div>
-    </div>
-    <h3
-      class="absolute text-aexdo-content right-0 bottom-56 m-0 text-6xl -rotate-90 origin-right"
+  </div>
+  <!-- <h3
+      class="absolute text-aexdo-content right-12 bottom-56 m-0 text-2xl lg:text-6xl -rotate-90 origin-right"
     >
       Etude de cas
-    </h3>
-  </div>
+    </h3> -->
 </section>

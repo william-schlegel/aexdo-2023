@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+import EmailForm from "./EmailForm";
+
+const ressources = [
+  { label: "Vidéos", link: "/videos" },
+  { label: "Blog", link: "/blog" },
+  { label: "Cas d'usage", link: "/usecase" },
+  { label: "Documentation", link: "/doc" },
+];
+const societe = [
+  { label: "Nos clients", link: "/clients" },
+  { label: "Nos partenaires", link: "/partenaires" },
+  { label: "Les fondateurs", link: "/founders" },
+  { label: "L'équipe", link: "/team" },
+];
+const footer = [
+  { label: "Mentions", link: "/mentions" },
+  { label: "CGV", link: "/cgv" },
+  { label: "CGU", link: "/cgu" },
+  { label: "Cookies", link: "/cookies" },
+];
+---
+
+<footer class="bg-base-900 text-base-900-content grid lg:grid-cols-2">
+  <section
+    class="flex flex-col lg:flex-row items-center p-8 justify-evenly border-b gap-4 border-base-900-content/50"
+  >
+    <Image src={logo} alt="aexdo logo" width={200} />
+    <div class="text-lg font-semibold">
+      <p>Reprendre le contrôle de vos données</p>
+      <p>Les comprendre et savoir les expliquer</p>
+    </div>
+  </section>
+  <section
+    class="lg:row-span-2 p-8 border-b lg:border-b-0 lg:border-l border-base-900-content/50"
+  >
+    <div class="max-w-xs mx-auto space-y-8">
+      <h3 class="text-aexdo font-semibold">Démonstration</h3>
+      <p class="text-2xl lg:text-5xl">Demander une démonstration</p>
+      <EmailForm />
+    </div>
+  </section>
+  <section class="flex p-8 justify-evenly">
+    <div>
+      <h3 class="text-aexdo font-semibold mb-2">Ressources</h3>
+      <ul class="space-y-2">
+        {
+          ressources.map((item) => (
+            <li>
+              <a href={item.link}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-aexdo font-semibold mb-2">Société</h3>
+      <ul class="space-y-2">
+        {
+          societe.map((item) => (
+            <li>
+              <a href={item.link}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+  <section
+    class="flex flex-wrap items-center lg:col-span-2 space-x-8 px-8 py-4 border-t border-base-900-content/50"
+  >
+    <span>&copy; {new Date(Date.now()).getFullYear()} Aexdo</span>
+    <ul class="flex gap-8 flex-wrap">
+      {
+        footer.map((item) => (
+          <li>
+            <a href={item.link}>{item.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</footer>

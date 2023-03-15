@@ -39,9 +39,81 @@ const MENU: TMenu[] = [
 ];
 ---
 
-<nav
-  class="gap-4 items-stretch bg-aexdo grid grid-cols-5 max-w-3xl absolute top-0 right-0"
->
-  {MENU.map((menu) => <MenuOption client:load menu={menu} />)}
-  <BtnDemo variant={"menu"} />
+<nav class="absolute top-0 right-0 bg-aexdo/30">
+  <div class="lg:hidden">
+    <button
+      id="open-nav-button"
+      class="text-aexdo-content p-4"
+      aria-label="Navigation"
+    >
+      <i class="bx bx-menu bx-lg"></i>
+    </button>
+  </div>
+  <div
+    class="gap-4 items-stretch bg-aexdo grid-cols-5 max-w-3xl hidden lg:grid"
+  >
+    {MENU.map((menu) => <MenuOption client:load menu={menu} />)}
+    <BtnDemo variant={"menu"} />
+  </div>
 </nav>
+<div
+  id="menu-mobile"
+  class="absolute inset-0 bg-base-100 flex-col text-3xl gap-4"
+  style="display: none;"
+>
+  <button
+    id="close-nav-button"
+    class="p-4 self-end bg-aexdo text-aexdo-content"
+    aria-label="Fermer le menu"
+  >
+    <i class="bx bx-x bx-lg"></i>
+  </button>
+
+  <ul class="space-y-4 p-12">
+    {
+      MENU.map((menu) => (
+        <li class="text-aexdo font-bold">
+          {menu.link ? (
+            <a href={menu.link}>{menu.label}</a>
+          ) : (
+            <div>
+              {menu.label}
+              <ul class="space-y-2">
+                {menu.options?.map((opt) => (
+                  <li class="font-normal">
+                    <a href={opt.link}>{opt.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  import invariant from "tiny-invariant";
+
+  const menu = document.getElementById("menu-mobile");
+  const openNavButton = document.getElementById("open-nav-button");
+  const closeNavButton = document.getElementById("close-nav-button");
+
+  invariant(menu, "menu should not be null");
+  invariant(openNavButton, "openNavButton should not be null");
+  invariant(closeNavButton, "closeNavButton should not be null");
+
+  const openMenu = () => {
+    menu.style.display = "flex";
+    openNavButton.style.display = "none";
+  };
+
+  const closeMenu = () => {
+    menu.style.display = "none";
+    openNavButton.style.display = "block";
+  };
+
+  openNavButton.addEventListener("click", openMenu);
+  closeNavButton.addEventListener("click", closeMenu);
+</script>
