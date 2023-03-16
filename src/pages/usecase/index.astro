@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import Header from "../../components/header.astro";
+import Logo from "../../components/logo.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const usecases = await getCollection("usecases");
+---
+
+<Layout title="blog">
+  <main class="max-w-6xl mx-auto bg-base-100 relative min-h-screen">
+    <Logo />
+    <Header />
+    <h1 class="text-2xl lg:text-5xl text-center text-aexdo font-bold my-8">
+      Cas d'usage
+    </h1>
+    <div class="py-24 px-8 grid lg:grid-cols-2 lg:px-16 gap-4">
+      {
+        usecases.map((usecase) => (
+          <div class="flex flex-col border border-aexdo rounded-lg overflow-hidden p-4">
+            <div class="max-w-[16rem] mx-auto">
+              <img src={usecase.data.logo} width={300} />
+            </div>
+            <div class="p-8 space-y-4">
+              <h2 class="text-aexdo font-bold text-2xl">
+                {usecase.data.title}
+              </h2>
+              <p>{usecase.data.brief}</p>
+              <div class="text-center">
+                <a
+                  href={`/usecase/${usecase.slug}`}
+                  class="bg-aexdo text-aexdo-content font-semibold text-center px-6 py-4 rounded-full place-self-center hover:bg-aexdo/80"
+                >
+                  Lire le cas d'usage
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

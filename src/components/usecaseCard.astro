@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  usecase: CollectionEntry<"usecases">;
+  previous?: boolean;
+  next?: boolean;
+}
+
+const { usecase, previous, next } = Astro.props;
+---
+
+<div
+  class={`flex gap-4 bg-base-100 text-aexdo border border-aexdo p-4 items-center text-base rounded shadow hover:bg-base-200`}
+>
+  {previous ? <i class="bx bx-chevron-left bx-md" /> : null}
+
+  <a href={`/usecase/${usecase.slug}`}>{usecase.data.title}</a>
+  {next ? <i class="bx bx-chevron-right  bx-md" /> : null}
+</div>

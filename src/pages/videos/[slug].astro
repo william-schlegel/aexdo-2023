@@ -1,0 +1,47 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Header from "../../components/header.astro";
+import Layout from "../../layouts/Layout.astro";
+import Logo from "../../components/logo.astro";
+import Video from "../../components/Video";
+import VideoCard from "../../components/videoCard.astro";
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const videos = await getCollection("videos");
+  return videos.map((entry, idx) => ({
+    params: { slug: entry.slug },
+    props: { entry, previous: videos[idx - 1], next: videos[idx + 1] },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"videos">;
+  previous: CollectionEntry<"videos"> | undefined;
+  next: CollectionEntry<"videos"> | undefined;
+}
+
+const { entry, next, previous } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title}>
+  <main class="max-w-6xl mx-auto bg-base-100 relative min-h-screen">
+    <Logo />
+    <Header />
+    <h1 class="text-2xl lg:text-5xl text-center text-aexdo font-bold my-8">
+      {entry.data.title}
+    </h1>
+    <div class="pb-24 px-8 lg:px-16">
+      <div class="grid place-items-center max-w-full">
+        <Video client:only videoId={entry.data.link} title={entry.data.title} />
+      </div>
+      <div class="prose lg:prose-xl mt-12 mx-auto">
+        <Content />
+      </div>
+      <div class="flex justify-between mt-8">
+        {previous ? <VideoCard video={previous} previous /> : <span />}
+        {next ? <VideoCard video={next} next /> : <span />}
+      </div>
+    </div>
+  </main>
+</Layout>

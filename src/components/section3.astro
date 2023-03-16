@@ -1,24 +1,16 @@
 ---
 import { getImage } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
 
 import image from "../assets/papers.jpg";
+
 const bgImage = await getImage({
   src: image,
   format: "jpeg",
   height: 800,
 });
 
-const caseStudies = [
-  {
-    logo: "/logos/ect.png",
-    title: "Reprise d’anciens dossiers",
-    brief:
-      "Nous avons repris un ensemble de dossiers “papier” afin de les rendre intelligibles pour tous les acteurs des projets en quelques clicks",
-    link: "/ressources/usecase/ect",
-  },
-];
-
-const caseStudy = caseStudies[Math.floor(Math.random() * caseStudies.length)];
+const caseStudy = await getEntryBySlug("usecases", "ect");
 ---
 
 <section
@@ -31,12 +23,12 @@ const caseStudy = caseStudies[Math.floor(Math.random() * caseStudies.length)];
   >
   </div>
   <div class="relative bg-base-100 p-12 space-y-8 shadow z-10">
-    <img src={caseStudy.logo} />
-    <h3 class="text-2xl font-bold mb-4">{caseStudy.title}</h3>
-    <p>{caseStudy.brief}</p>
+    <img src={caseStudy.data.logo} />
+    <h3 class="text-2xl font-bold mb-4">{caseStudy.data.title}</h3>
+    <p>{caseStudy.data.brief}</p>
     <div class="text-right">
       <a
-        href={caseStudy.link}
+        href={`/usecase/${caseStudy.slug}`}
         class="bg-aexdo text-aexdo-content font-semibold text-center px-8 py-4 rounded-full"
         >En savoir plus</a
       >
