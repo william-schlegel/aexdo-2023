@@ -18,4 +18,4 @@ A quelques jours de l’entrée en vigueur de Trackdéchets - Ministère de la T
 
 ### Bordereau pour les déchets dangereux : CERFA 154971-2
 
-![Bordereau pour les déchets dangereux](/blog/bordereau_dd.jpg)
+<img src="/blog/bordereau_dd.jpg" alt="Bordereau pour les déchets dangereux" width="600" height="600"/>
