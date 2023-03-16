@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import { format, isAfter } from "date-fns";
-import { fr } from "date-fns/locale";
+import { isAfter } from "date-fns";
 import Author from "../../components/author.astro";
+import DateLocale from "../../components/DateLocale";
 import Header from "../../components/header.astro";
 import Logo from "../../components/logo.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -34,7 +34,9 @@ const orderedPosts = posts.sort((a, b) =>
               <p class="text-xl">{post.data.brief}</p>
               <div class="flex justify-between items-center text-sm flex-wrap">
                 <div class="flex items-center">
-                  <p>Publié le {format(post.data.date, "P", { locale: fr })}</p>
+                  <p>
+                    Publié le <DateLocale client:only date={post.data.date} />
+                  </p>
                   <Author author={post.data.author} />
                 </div>
                 <a
