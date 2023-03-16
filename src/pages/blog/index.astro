@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import { format, isAfter } from "date-fns";
+import { fr } from "date-fns/locale";
+import Author from "../../components/author.astro";
+import Header from "../../components/header.astro";
+import Logo from "../../components/logo.astro";
+import Layout from "../../layouts/Layout.astro";
+
+// 1. Generate a new path for every collection entry
+const posts = await getCollection("blog");
+const orderedPosts = posts.sort((a, b) =>
+  isAfter(a.data.date, b.data.date) ? -1 : 1
+);
+---
+
+<Layout title="blog">
+  <main class="max-w-6xl mx-auto bg-base-100 relative min-h-screen">
+    <Logo />
+    <Header />
+    <h1 class="text-2xl lg:text-5xl text-center text-aexdo font-bold my-8">
+      Blog
+    </h1>
+    <div class="py-24 px-8 space-y-4 lg:px-16">
+      {
+        orderedPosts.map((post) => (
+          <div class="grid lg:grid-cols-2 border border-aexdo rounded-lg overflow-hidden">
+            <div
+              class="w-full h-full aspect-video lg:aspect-auto bg-cover origin-center"
+              style={`background-image: url(${post.data.image})`}
+            />
+            <div class="p-8 space-y-6">
+              <h2 class="text-aexdo font-bold text-2xl">{post.data.title}</h2>
+              <p class="text-xl">{post.data.brief}</p>
+              <div class="flex justify-between items-center text-sm flex-wrap">
+                <div class="flex items-center">
+                  <p>Publié le {format(post.data.date, "P", { locale: fr })}</p>
+                  <Author author={post.data.author} />
+                </div>
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="bg-aexdo text-aexdo-content font-semibold text-center px-4 py-2 rounded-full place-self-center"
+                >
+                  Lire le post
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

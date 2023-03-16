@@ -11,18 +11,12 @@ export default function MenuOption({ menu }: { menu: TMenu }) {
   useOnClickOutside(ref, () => switchVisible(false));
 
   function switchVisible(value?: boolean) {
-    if (menuVisible === value) return;
+    if (value) {
+      setMenuVisible(value);
+      return;
+    }
     const visible = value ?? !menuVisible;
     setMenuVisible(visible);
-    // if (menuRef.current) {
-    //   if (visible) {
-    //     menuRef.current.classList.remove("scale-y-0");
-    //     menuRef.current.classList.add("scale-y-100");
-    //   } else {
-    //     menuRef.current.classList.remove("scale-y-100");
-    //     menuRef.current.classList.add("scale-y-0");
-    //   }
-    // }
   }
 
   if (menu.options && menu.options.length)
@@ -31,6 +25,7 @@ export default function MenuOption({ menu }: { menu: TMenu }) {
         <button
           className="flex items-center justify-between  px-4 text-aexdo-content hover:bg-base-100/20 cursor-pointer"
           onClick={() => switchVisible()}
+          // onFocusCapture={() => switchVisible(true)}
         >
           <span className="mr-auto">{menu.label}</span>
           {menu?.options ? (

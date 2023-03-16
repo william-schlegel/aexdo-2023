@@ -1,27 +1,26 @@
 ---
+import { getCollection } from "astro:content";
 import type { TMenu } from "../types";
 import BtnDemo from "./BtnDemo.astro";
 import MenuOption from "./MenuOption";
 
+const solutions = await getCollection("solutions");
+const fonctions = await getCollection("fonctions");
+
 const MENU: TMenu[] = [
   {
     label: "Fonctions",
-    options: [
-      { label: "Appliction mobile", link: "/functions/mobile" },
-
-      { label: "Importation de projets", link: "/functions/import" },
-      { label: "Description des projets", link: "/functions/description" },
-      { label: "Visualisation de la pollution", link: "/functions/pollution" },
-    ],
+    options: fonctions.map((item) => ({
+      label: item.data.title,
+      link: `/fonctions/${item.slug}`,
+    })),
   },
   {
     label: "Solutions",
-    options: [
-      { label: "Reprendre vos anciens dossiers", link: "/solutions/import" },
-      { label: "Expliquer la pollution du sol", link: "/solutions/explain" },
-      { label: "Evaluer le cout de dépollution", link: "/solutions/evaluate" },
-      { label: "Simuler des options", link: "/solutions/simulate" },
-    ],
+    options: solutions.map((item) => ({
+      label: item.data.title,
+      link: `/solutions/${item.slug}`,
+    })),
   },
   {
     label: "Ressources",

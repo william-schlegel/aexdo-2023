@@ -4,12 +4,12 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 
 import heroImage from "../assets/hero.jpg";
-import logo from "../assets/logo.png";
 import BtnDemo from "../components/BtnDemo.astro";
 import Section1 from "../components/section1.astro";
 import Section2 from "../components/section2.astro";
 import Section3 from "../components/section3.astro";
 import Footer from "../components/footer.astro";
+import Logo from "../components/logo.astro";
 ---
 
 <Layout title="">
@@ -18,7 +18,7 @@ import Footer from "../components/footer.astro";
       <div
         class="absolute left-0 top-0 z-10 lg:relative lg:flex lg:flex-col lg:justify-between lg:bg-base-100"
       >
-        <Image src={logo} width={120} alt="Logo AEXDO" class="p-4" />
+        <Logo />
         <div
           class="bg-aexdo text-aexdo-content h-36 px-8 text-6xl hidden lg:grid lg:place-items-center"
         >
@@ -38,7 +38,7 @@ import Footer from "../components/footer.astro";
         </div>
       </div>
     </div>
-    <Header />
+    <Header absolute />
     <Section1 />
     <Section2 />
     <Section3 />

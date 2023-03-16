@@ -1,0 +1,28 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+
+interface Props {
+  author: string;
+}
+
+const { author } = Astro.props;
+const auth = await getEntryBySlug("authors", author);
+---
+
+<span>
+  {
+    auth && (
+      <span class="flex items-center gap-2">
+        <p class="ml-2">par</p>
+        <img
+          src={auth.data.photo}
+          height={32}
+          width={32}
+          class="aspect-square rounded-full"
+          alt={auth.data.nom}
+        />
+        {auth.data.nom}
+      </span>
+    )
+  }
+</span>
