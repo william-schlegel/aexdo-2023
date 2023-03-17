@@ -1,0 +1,91 @@
+---
+import Header from "../components/header.astro";
+import Logo from "../components/logo.astro";
+import Layout from "../layouts/Layout.astro";
+
+const FAQS = [
+  {
+    q: "Comment fonctionnent les plans",
+    r: "Sélectionnez le plan correspondant à vos besoins",
+  },
+  {
+    q: "Comment fonctionnent les abonnements",
+    r: "Les abonnements sont fonction de la taille de votre structure",
+  },
+  {
+    q: "Comment travailler sur un projet",
+    r: "Vous pouvez travailler sur vos propres projets ou être invité sur les projets d'autres utilisateurs",
+  },
+  {
+    q: "J'ai perdu mon mot de passe",
+    r: "Utilisez la fonction de récupération depuis la fenêtre de login",
+  },
+  {
+    q: "Combien de campagnes par projet",
+    r: "Selon le plan que vous avez choisi, vous pouvez avoir une ou plusieurs campagnes par projets. Il n'y a pas de limite au multi campagnes",
+  },
+  {
+    q: "Comment représenter les batiments à venir",
+    r: "Ils sont désignés sous le nom de destinations dans le projet. Les destinations sont créées dans l'interface de création de donnée ou importées depuis des fichiers GPX ou KML. Elles peuvent être caractérisées de voierie ou de bâtiment avec une élévation",
+  },
+  {
+    q: "Comment importer une image",
+    r: "Depuis l'interface de création de données, vous importez une image avec une transparence pour l'appliquer sur le plan. Voir dans les vidéos le mode détaillé pas à pas.",
+  },
+];
+---
+
+<Layout title="FAQ ?">
+  <main class="max-w-6xl mx-auto bg-base-100 relative min-h-screen">
+    <Logo />
+    <Header />
+    <h1 class="text-2xl lg:text-5xl text-center text-aexdo font-bold my-8">
+      Questions fréquentes
+    </h1>
+    <div class="tabs">
+      {
+        FAQS.map((faq, idx) => (
+          <div class="tab">
+            <input type="checkbox" id={`chk-${idx}`} />
+            <label class="tab-label" for={`chk-${idx}`}>
+              {faq.q}
+            </label>
+            <div class="tab-content">{faq.r}</div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+<style>
+  input {
+    @apply absolute opacity-0 -z-10;
+  }
+  .tabs {
+    @apply w-5/6 max-w-2xl mx-auto shadow-lg;
+  }
+  .tab {
+    @apply w-full overflow-hidden;
+  }
+
+  .tab-label {
+    @apply flex justify-between p-4 bg-aexdo/80 text-aexdo-content font-bold cursor-pointer hover:bg-aexdo/50;
+  }
+  .tab-label::after {
+    content: "\276F";
+    @apply w-4 aspect-square text-center transition-all duration-300;
+  }
+  .tab-content {
+    @apply max-h-0 px-4 bg-base-100 transition-all duration-300;
+  }
+
+  input:checked + .tab-label {
+    @apply bg-aexdo;
+  }
+  input:checked + .tab-label::after {
+    @apply rotate-90;
+  }
+  input:checked ~ .tab-content {
+    @apply max-h-screen p-4;
+  }
+</style>

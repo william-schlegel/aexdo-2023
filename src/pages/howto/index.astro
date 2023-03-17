@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Header from "../../components/header.astro";
+import Logo from "../../components/logo.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const howtos = await getCollection("howto");
+---
+
+<Layout title="Comment faire ?">
+  <main class="max-w-6xl mx-auto bg-base-100 relative min-h-screen">
+    <Logo />
+    <Header />
+    <h1 class="text-2xl lg:text-5xl text-center text-aexdo font-bold my-8">
+      Comment faire ?
+    </h1>
+    <div class="w-5/6 max-w-lg mx-auto">
+      {
+        howtos.map((howto) => (
+          <div class="flex flex-col border border-aexdo first:rounded-t-2xl last:rounded-b-2xl p-4">
+            <div class="text-center">
+              <a href={`/howto/${howto.slug}`}>{howto.data.title}</a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
