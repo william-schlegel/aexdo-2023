@@ -15,7 +15,7 @@ const data: TDataSection2[] = [
     title: "Vous êtes un constructeur",
     description:
       "Vous avez accès à une de visualisations sur un écran, pour comprendre rapidement la nature de la pollution. Les calculs de volumétrie sont faits instantanément et évoluent en fonction des modifications du projet.",
-    image: "/src/assets/desktop/dashboard.png",
+    image: "/desktop/dashboard.png",
     actors: [
       {
         name: "Bureau d'études",
@@ -38,7 +38,7 @@ const data: TDataSection2[] = [
     title: "Vous êtes une société dans l'immobilier",
     description:
       "AEXDO vous permet une compréhension rapide des données et des enjeux environnementaux. Un prescripteur a la possibilité tout au long de la vie du projet de distribuer à ses partenaires des actions à mener pour un chantier.",
-    image: "/src/assets/desktop/data-creation-probing.png",
+    image: "/desktop/data-creation-probing.png",
     actors: [
       {
         name: "Promoteurs, investisseurs, bailleurs sociaux",
@@ -61,7 +61,7 @@ const data: TDataSection2[] = [
     title: "Vous êtes spécialiste des sols pollués",
     description:
       "L'outil vous permet de synthétiser rapidement les données. Il génère instantanément l’ensemble des annexes des rapports et permet de les faire évoluer tout au long du projet sans aucun impact de temps de réalisation.",
-    image: "/src/assets/desktop/voronoi-3d-g.png",
+    image: "/desktop/voronoi-3d-g.png",
     actors: [
       {
         name: "Bureau d'études",
@@ -85,7 +85,12 @@ const data: TDataSection2[] = [
 const images = await Promise.all(
   data.map(
     async (d) =>
-      await getImage({ src: d.image, format: "webp", width: 600, height: 400 })
+      await getImage({
+        src: `/public/${d.image}`,
+        format: "webp",
+        width: 600,
+        height: 400,
+      })
   )
 );
 //<img src={d.image} alt="" width="600" height="400" />

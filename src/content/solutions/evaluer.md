@@ -1,6 +1,6 @@
 ---
 title: Evaluer le cout de dépollution
-image: /src/assets/desktop/volume.png
+image: /desktop/volume.png
 ---
 ## Evaluer le cout de dépollution
 

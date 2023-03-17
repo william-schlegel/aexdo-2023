@@ -1,6 +1,6 @@
 ---
 title: Reprendre vos anciens dossiers
-image: /src/assets/desktop/volume.png
+image: /desktop/volume.png
 ---
 ## Reprendre vos anciens dossiers
 

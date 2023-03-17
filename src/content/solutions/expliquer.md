@@ -1,6 +1,6 @@
 ---
 title: Expliquer la pollution du sol
-image: /src/assets/desktop/volume.png
+image: /desktop/volume.png
 ---
 ## Expliquer la pollution du sol
 

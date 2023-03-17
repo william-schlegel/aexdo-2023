@@ -1,6 +1,6 @@
 ---
 title: Application mobile
-image: /src/assets/desktop/pid.png
+image: /desktop/pid.png
 ---
 ## L'application mobile AEXDO
 

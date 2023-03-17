@@ -21,7 +21,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const image = entry.data.image
   ? await getImage({
-      src: entry.data.image,
+      src: `/public/${entry.data.image}`,
       format: "webp",
       width: 800,
       height: 600,

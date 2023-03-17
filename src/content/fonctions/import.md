@@ -1,6 +1,6 @@
 ---
 title: Importation de projets
-image: /src/assets/desktop/volume.png
+image: /desktop/volume.png
 ---
 ## Importer vos projets dans AEXDO
 
