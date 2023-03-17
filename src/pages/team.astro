@@ -2,6 +2,25 @@
 import Header from "../components/header.astro";
 import Logo from "../components/logo.astro";
 import Layout from "../layouts/Layout.astro";
+
+const TEAM = [
+  {
+    nom: "Edern Viannay",
+    fonction: "Responsable R&D",
+    email: "edern@aexdo.com",
+    photo: "/team/edern.jpg",
+    description:
+      "Edern VIANNAY, ingénieur ESTP 2020 est en charge de la R&D. Edern suit une thèse à l'UTT/ESTP Troyes et développe pour nous des solutions pour mieux gérer les données et les matériaux à l’aide de l’IA et de la DATA Analyse",
+  },
+  {
+    nom: "4 developeurs Khanasoft",
+    fonction: "",
+    email: "",
+    photo: "/team/devs.jpg",
+    description:
+      "Nous avons actuellement 4 informaticiens dédiés de chez la société KhanaSoft. Dans un premier temps les prototypes sont développés directement par William et Edern. Nous travaillons alors avec nos clients amis à la mise au point des fonctionnalités et l’ergonomie du produit. Une fois la mise au point terminée, nous l’envoyons à KhanaSoft qui l’intègre à notre plateforme",
+  },
+];
 ---
 
 <Layout title="L'équipe">
@@ -11,5 +30,34 @@ import Layout from "../layouts/Layout.astro";
     <h1 class="text-2xl lg:text-5xl text-center text-aexdo font-bold my-8">
       Nos collaborateurs
     </h1>
+    <div class="grid md:grid-cols-2 gap-8 p-8">
+      {
+        TEAM.map((team) => (
+          <figure class="border border-aexdo p-8 rounded-lg shadow space-y-8">
+            <img
+              class="w-36 mx-auto"
+              src={team.photo}
+              alt={`Photo de profile de ${team.nom}`}
+            />
+            <figcaption class="text-center font-medium">
+              <p class="text-cyan-700">{team.nom}</p>
+              {team.fonction && <p class="text-aexdo">{team.fonction}</p>}
+              {team.email && (
+                <p class="text-gray-700">
+                  <a
+                    href={`mailto:${team.email}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {team.email}
+                  </a>
+                </p>
+              )}
+            </figcaption>
+            <p>{team.description}</p>
+          </figure>
+        ))
+      }
+    </div>
   </main>
 </Layout>

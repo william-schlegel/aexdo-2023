@@ -3,6 +3,4 @@ layout: ../layouts/StaticPage.astro
 title: Un petit cooky ?
 ---
 
-## Article 1
-
-Attention à votre ligne
+Ce site n'utilise pas de cooky, vous allez pouvoir garder la ligne !
