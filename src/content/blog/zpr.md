@@ -1,7 +1,7 @@
 ---
 title: "Zones préférentielles de renaturation"
 date: 2023-01-11
-image: "/blog/zpr.jpeg"
+image: "/src/assets/blog/zpr.jpeg"
 brief: "Un décret portant diverses mesures liées à l’évaluation environnementale et la compensation de projets est paru le 28 décembre 2022."
 author: bernard
 ---

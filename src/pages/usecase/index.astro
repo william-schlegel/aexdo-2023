@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Header from "../../components/header.astro";
 import Logo from "../../components/logo.astro";
@@ -19,7 +20,12 @@ const usecases = await getCollection("usecases");
         usecases.map((usecase) => (
           <div class="flex flex-col border border-aexdo rounded-lg overflow-hidden p-4">
             <div class="max-w-[16rem] mx-auto">
-              <img src={usecase.data.logo} width={300} />
+              <Image
+                src={usecase.data.logo}
+                width={300}
+                height={300}
+                alt={`Logo  du client ${usecase.data.client ?? ""}`}
+              />
             </div>
             <div class="p-8 space-y-4">
               <h2 class="text-aexdo font-bold text-2xl">

@@ -1,6 +1,7 @@
 ---
 import type { TActor } from "../types";
 import Actors from "./Actors";
+import { getImage } from "astro:assets";
 
 type TDataSection2 = {
   title: string;
@@ -14,7 +15,7 @@ const data: TDataSection2[] = [
     title: "Vous êtes un constructeur",
     description:
       "Vous avez accès à une de visualisations sur un écran, pour comprendre rapidement la nature de la pollution. Les calculs de volumétrie sont faits instantanément et évoluent en fonction des modifications du projet.",
-    image: "/desktop/dashboard.png",
+    image: "/src/assets/desktop/dashboard.png",
     actors: [
       {
         name: "Bureau d'études",
@@ -37,7 +38,7 @@ const data: TDataSection2[] = [
     title: "Vous êtes une société dans l'immobilier",
     description:
       "AEXDO vous permet une compréhension rapide des données et des enjeux environnementaux. Un prescripteur a la possibilité tout au long de la vie du projet de distribuer à ses partenaires des actions à mener pour un chantier.",
-    image: "/desktop/data-creation-probing.png",
+    image: "/src/assets/desktop/data-creation-probing.png",
     actors: [
       {
         name: "Promoteurs, investisseurs, bailleurs sociaux",
@@ -60,7 +61,7 @@ const data: TDataSection2[] = [
     title: "Vous êtes spécialiste des sols pollués",
     description:
       "L'outil vous permet de synthétiser rapidement les données. Il génère instantanément l’ensemble des annexes des rapports et permet de les faire évoluer tout au long du projet sans aucun impact de temps de réalisation.",
-    image: "/desktop/voronoi-3d-g.png",
+    image: "/src/assets/desktop/voronoi-3d-g.png",
     actors: [
       {
         name: "Bureau d'études",
@@ -80,16 +81,24 @@ const data: TDataSection2[] = [
     ],
   },
 ];
+
+const images = await Promise.all(
+  data.map(
+    async (d) =>
+      await getImage({ src: d.image, format: "webp", width: 600, height: 400 })
+  )
+);
+//<img src={d.image} alt="" width="600" height="400" />
 ---
 
 <section class="bg-base-200 p-8 lg:p-24 space-y-12">
   {
-    data.map((d) => (
+    data.map((d, idx) => (
       <article class="space-6">
         <h2 class="text-aexdo text-3xl font-semibold py-6">{d.title}</h2>
         <div class="grid lg:grid-cols-[2fr,3fr]">
           <Actors client:load actors={d.actors} />
-          <img src={d.image} alt="" width="600" height="400" />
+          <img src={images[idx].src} alt="" />
         </div>
         <p class="mt-8">{d.description}</p>
       </article>

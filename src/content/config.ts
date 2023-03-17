@@ -32,6 +32,7 @@ const usecases = defineCollection({
     logo: z.string(),
     title: z.string(),
     brief: z.string(),
+    client: z.string().optional(),
   }),
 });
 const videos = defineCollection({

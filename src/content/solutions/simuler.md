@@ -1,6 +1,6 @@
 ---
 title: Simuler des options
-image: /desktop/volume.png
+image: /src/assets/desktop/volume.png
 ---
 ## Simuler des options
 

@@ -1,7 +1,7 @@
 ---
 title: "Santé des sols – protéger, gérer et restaurer durablement les sols de l’UE"
 date: 2022-03-02
-image: "/blog/sds.webp"
+image: "/src/assets/blog/sds.webp"
 brief: "Les sols sont essentiels pour l’alimentation, la nature et notre économie et méritent le même niveau de protection que l’eau, l’air ou le milieu marin."
 author: bernard
 ---

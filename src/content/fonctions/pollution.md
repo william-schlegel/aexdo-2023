@@ -1,6 +1,6 @@
 ---
 title: Visualisation de la pollution
-image: /desktop/volume.png
+image: /src/assets/desktop/volume.png
 ---
 ## Visualiser la pollution dans AEXDO
 

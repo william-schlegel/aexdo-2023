@@ -1,7 +1,7 @@
 ---
 title: "IMMOBILIER Cessation d’activité des ICPE et dépollution : les obligations des industriels renforcées."
 date: 2022-06-02
-image: "/blog/icpe.webp"
+image: "/src/assets/blog/icpe.webp"
 brief: "Des modifications apportées dans les dispositions du Code de l’environnement relatives à la cessation d’activité des installations classées pour la protection de l’environnement (ICPE)."
 author: bernard
 ---
