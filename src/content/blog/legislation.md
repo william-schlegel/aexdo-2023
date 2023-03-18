@@ -1,7 +1,7 @@
 ---
 title: "Vers une refonte de la législation sur les sites et sols pollués"
 date: 2021-09-28
-image: "/src/assets/blog/legislation.webp"
+image: "/blog/legislation.webp"
 brief: "Urbanisme et environnement - Proposition de loi visant à refonder la politique de gestion et de protection des sites et sols pollués en France"
 author: bernard
 ---

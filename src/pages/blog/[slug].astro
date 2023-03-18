@@ -30,7 +30,12 @@ const { Content } = await entry.render();
     <div class="pb-24 px-8 lg:px-16">
       {
         entry.data.image ? (
-          <img src={entry.data.image} class="w-2/3 shadow mx-auto rounded-xl" />
+          <img
+            src={entry.data.image}
+            class="w-2/3 shadow mx-auto rounded-xl"
+            width={800}
+            height={600}
+          />
         ) : null
       }
       <div class="prose lg:prose-xl mt-12 mx-auto">

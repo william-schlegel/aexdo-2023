@@ -8,7 +8,7 @@ const TEAM = [
     nom: "Edern Viannay",
     fonction: "Responsable R&D",
     email: "edern@aexdo.com",
-    photo: "/src/assets/team/edern.jpg",
+    photo: "/team/edern.jpg",
     description:
       "Edern VIANNAY, ingénieur ESTP 2020 est en charge de la R&D. Edern suit une thèse à l'UTT/ESTP Troyes et développe pour nous des solutions pour mieux gérer les données et les matériaux à l’aide de l’IA et de la DATA Analyse",
   },
@@ -16,7 +16,7 @@ const TEAM = [
     nom: "4 developeurs Khanasoft",
     fonction: "",
     email: "",
-    photo: "/src/assets/team/devs.jpg",
+    photo: "/team/devs.jpg",
     description:
       "Nous avons actuellement 4 informaticiens dédiés de chez la société KhanaSoft. Dans un premier temps les prototypes sont développés directement par William et Edern. Nous travaillons alors avec nos clients amis à la mise au point des fonctionnalités et l’ergonomie du produit. Une fois la mise au point terminée, nous l’envoyons à KhanaSoft qui l’intègre à notre plateforme",
   },
@@ -38,6 +38,8 @@ const TEAM = [
               class="w-36 mx-auto"
               src={team.photo}
               alt={`Photo de profile de ${team.nom}`}
+              width={200}
+              height={200}
             />
             <figcaption class="text-center font-medium">
               <p class="text-cyan-700">{team.nom}</p>

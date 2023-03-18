@@ -1,0 +1,115 @@
+---
+import Header from "../components/header.astro";
+import Logo from "../components/logo.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact">
+  <main class="max-w-6xl mx-auto bg-base-100 relative min-h-screen">
+    <Logo />
+    <Header />
+    <h1 class="text-2xl lg:text-5xl text-center text-aexdo font-bold my-8">
+      Contact
+    </h1>
+    <div class="max-w-lg mx-auto">
+      <div
+        id="success"
+        class="hidden bg-green-400/50 text-green-700 border border-green-700 rounded-lg p-8"
+      >
+        <span>Message envoyé, nous vous répondrons au plus vite</span>
+      </div>
+      <div
+        id="error"
+        class="hidden bg-red-400/50 text-red-700 border border-red-700 rounded-lg p-8"
+      >
+        <span>Erreur lors de l'envoi du message</span>
+      </div>
+      <form class="flex flex-col gap-2" id="contact-form">
+        <label for="email" class="required">Votre email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+          placeholder="nom.prenom@societe.com"
+        />
+        <label for="nom" class="required">Votre nom</label>
+        <input id="nom" name="nom" placeholder="nom" required />
+        <label for="objet" class="required">objet de votre demande</label>
+        <input
+          id="objet"
+          name="objet"
+          placeholder="J'aimerai une présentation de votre outil"
+          required
+        />
+        <label for="message">Message</label>
+        <textarea
+          class="col-span-2"
+          rows="6"
+          id="message"
+          name="message"
+          placeholder="Merci de me recontacter au plus vite"></textarea>
+        <button
+          type="submit"
+          class="bg-aexdo text-aexdo-content px-6 py-2 rounded-full shadow"
+          >Envoyer mon message</button
+        >
+      </form>
+    </div>
+  </main>
+</Layout>
+<style>
+  .row {
+    @apply grid grid-cols-[auto,1fr] gap-4 items-center;
+  }
+  label {
+    @apply text-aexdo font-bold;
+  }
+  label.required::after {
+    content: "*";
+    @apply ml-2 text-red-500;
+  }
+  input,
+  textarea {
+    @apply w-full p-2 border border-gray-500 rounded-md focus:border-aexdo;
+  }
+  input[required] {
+    @apply border-red-500;
+  }
+</style>
+<script>
+  import emailjs from "@emailjs/browser";
+  import invariant from "tiny-invariant";
+
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const success = document.getElementById("success") as HTMLDivElement;
+  const error = document.getElementById("error") as HTMLDivElement;
+
+  invariant(form, "erreur sélection du formulaire");
+  invariant(success, "erreur sélection success");
+  invariant(error, "erreur sélection error");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    emailjs
+      .sendForm(
+        "service_wkg817z",
+        "template_3vsi071",
+        form,
+        "JLKxiJtu7xGLpfid_"
+      )
+      .then(
+        () => {
+          form.classList.add("hidden");
+          success.classList.remove("hidden");
+        },
+        (err) => {
+          form.classList.add("hidden");
+          error.classList.remove("hidden");
+          const span = document.createElement("span");
+          span.textContent = err;
+          error.appendChild(span);
+        }
+      );
+  });
+</script>

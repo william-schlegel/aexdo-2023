@@ -1,5 +1,5 @@
 ---
-import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 import Header from "../../components/header.astro";
 import Logo from "../../components/logo.astro";
@@ -19,14 +19,6 @@ interface Props {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-const image = entry.data.image
-  ? await getImage({
-      src: `/public/${entry.data.image}`,
-      format: "webp",
-      width: 800,
-      height: 600,
-    })
-  : null;
 ---
 
 <Layout title={entry.data.title}>
@@ -37,11 +29,13 @@ const image = entry.data.image
       {entry.data.title}
     </h1>
     <div class="py-24 px-8 lg:px-16">
-      {
-        image ? (
-          <img src={image.src} class="w-2/3 shadow mx-auto rounded-xl" />
-        ) : null
-      }
+      <img
+        src={entry.data.image}
+        class="w-2/3 shadow mx-auto rounded-xl"
+        alt=""
+        width={800}
+        height={600}
+      />
       <div class="prose lg:prose-xl mt-12 mx-auto">
         <Content />
       </div>

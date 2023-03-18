@@ -4,7 +4,6 @@ import Header from "../../components/header.astro";
 import Layout from "../../layouts/Layout.astro";
 import Logo from "../../components/logo.astro";
 import UsecaseCard from "../../components/usecaseCard.astro";
-import { getImage } from "astro:assets";
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const usecases = await getCollection("usecases");
@@ -22,14 +21,6 @@ interface Props {
 
 const { entry, previous, next } = Astro.props;
 const { Content } = await entry.render();
-const image = entry.data.logo
-  ? await getImage({
-      src: entry.data.logo,
-      format: "webp",
-      width: 800,
-      height: 600,
-    })
-  : null;
 ---
 
 <Layout title={entry.data.title}>
@@ -42,10 +33,11 @@ const image = entry.data.logo
     <div class="pb-24 px-8 lg:px-16">
       <div class="max-w-[16rem] mx-auto">
         {
-          image ? (
+          entry.data.logo ? (
             <img
-              src={image?.src}
+              src={entry.data.logo}
               width={300}
+              height={300}
               class="border border-aexdo p-4 shadow"
             />
           ) : null

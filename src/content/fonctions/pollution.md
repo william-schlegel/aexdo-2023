@@ -1,6 +1,6 @@
 ---
 title: Visualisation de la pollution
-image: /desktop/volume.png
+image: /desktop/voronoi-3d-g.png
 ---
 ## Visualiser la pollution dans AEXDO
 

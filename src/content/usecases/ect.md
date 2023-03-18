@@ -1,5 +1,5 @@
 ---
-logo: "/src/assets/logos/ect.png"
+logo: "/logos/ect.png"
 title: "Digitalisation de dossiers"
 brief: "Nous avons digitalisé un ensemble de dossiers “papier” afin de déterminer les orientations de terres en quelques clicks"
 client: ECT

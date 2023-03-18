@@ -49,7 +49,7 @@ const MENU: TMenu[] = [
     </button>
   </div>
   <div
-    class="gap-4 items-stretch bg-aexdo grid-cols-5 max-w-3xl hidden lg:grid"
+    class="gap-4 items-stretch bg-aexdo grid-cols-5 max-w-[50rem] hidden lg:grid"
   >
     {MENU.map((menu) => <MenuOption client:load menu={menu} />)}
     <BtnDemo variant={"menu"} />

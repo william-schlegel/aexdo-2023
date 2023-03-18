@@ -1,5 +1,4 @@
 ---
-import { getImage } from "astro:assets";
 import { getEntryBySlug } from "astro:content";
 
 interface Props {
@@ -8,15 +7,6 @@ interface Props {
 
 const { author } = Astro.props;
 const auth = await getEntryBySlug("authors", author);
-
-const image = auth?.data?.photo
-  ? await getImage({
-      src: auth.data.photo,
-      format: "webp",
-      width: 32,
-      height: 32,
-    })
-  : null;
 ---
 
 <span>
@@ -24,9 +14,9 @@ const image = auth?.data?.photo
     auth && (
       <span class="flex items-center gap-2">
         <p class="ml-2">par</p>
-        {image ? (
+        {auth.data.photo ? (
           <img
-            src={image.src}
+            src={auth.data.photo}
             height={32}
             width={32}
             class="aspect-square rounded-full"

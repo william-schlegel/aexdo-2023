@@ -1,4 +1,4 @@
 ---
 nom: Bernard Bongras
-photo: /src/assets/authors/bernard.jpg
+photo: /authors/bernard.jpg
 ---

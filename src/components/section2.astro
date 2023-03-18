@@ -1,12 +1,12 @@
 ---
 import type { TActor } from "../types";
 import Actors from "./Actors";
-import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
 
 type TDataSection2 = {
   title: string;
   description: string;
-  image: string;
+  image: any;
   actors: TActor[];
 };
 
@@ -81,19 +81,6 @@ const data: TDataSection2[] = [
     ],
   },
 ];
-
-const images = await Promise.all(
-  data.map(
-    async (d) =>
-      await getImage({
-        src: `/public/${d.image}`,
-        format: "webp",
-        width: 600,
-        height: 400,
-      })
-  )
-);
-//<img src={d.image} alt="" width="600" height="400" />
 ---
 
 <section class="bg-base-200 p-8 lg:p-24 space-y-12">
@@ -103,7 +90,7 @@ const images = await Promise.all(
         <h2 class="text-aexdo text-3xl font-semibold py-6">{d.title}</h2>
         <div class="grid lg:grid-cols-[2fr,3fr]">
           <Actors client:load actors={d.actors} />
-          <img src={images[idx].src} alt="" />
+          <img src={d.image} alt="" />
         </div>
         <p class="mt-8">{d.description}</p>
       </article>

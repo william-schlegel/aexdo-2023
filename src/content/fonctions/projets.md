@@ -1,6 +1,6 @@
 ---
 title: Description des projets
-image: /desktop/volume.png
+image: /desktop/dashboard.png
 ---
 ## Décrire vos projets dans AEXDO
 

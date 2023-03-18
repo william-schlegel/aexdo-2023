@@ -8,7 +8,7 @@ const FOUNDERS = [
     nom: "Dominique Poux",
     fonction: "Président",
     email: "dominique@aexdo.com",
-    photo: "/src/assets/team/dominique.png",
+    photo: "/team/dominique.png",
     description:
       "Dominique POUX, spécialiste en aménagement et environnement, conseille les promoteurs et les constructeurs pour la gestion de leurs projets avec une problématique de terres polluées.",
   },
@@ -16,7 +16,7 @@ const FOUNDERS = [
     nom: "Trino Beltran",
     fonction: "Directeur général",
     email: "trino@aexdo.com",
-    photo: "/src/assets/team/trino.png",
+    photo: "/team/trino.png",
     description:
       "Trino Beltran, expert en management du changement de la transformation digitale des métiers de la construction et en innovation développe nos partenariats avec nos clients et autres start-ups pour vous proposer de nouveaux outils innovants",
   },
@@ -24,7 +24,7 @@ const FOUNDERS = [
     nom: "William Schlegel",
     fonction: "Directeur technique",
     email: "william@aexdo.com",
-    photo: "/src/assets/team/william.png",
+    photo: "/team/william.png",
     description:
       "William SCHLEGEL est un Start-uppeur récidiviste et notre CTO. Il garantit le bon fonctionnement de nos outils et veille à l’utilisation des meilleurs outils et architectures informatiques",
   },
@@ -32,7 +32,7 @@ const FOUNDERS = [
     nom: "Bernard Bongras",
     fonction: "Commercial/marketing",
     email: "bernard@aexdo.com",
-    photo: "/src/assets/team/bernard.png",
+    photo: "/team/bernard.png",
     description:
       "Bernard Bongras, responsable commercial depuis de nombreuses années dans les déchets et les sols pollués sera votre interlocuteur privilégié dans vos projets",
   },
@@ -54,6 +54,8 @@ const FOUNDERS = [
               class="w-36 mx-auto"
               src={fnd.photo}
               alt={`Photo de profile de ${fnd.nom}`}
+              width={200}
+              height={200}
             />
             <figcaption class="text-center font-medium">
               <p class="text-cyan-700">{fnd.nom}</p>

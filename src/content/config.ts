@@ -3,13 +3,13 @@ import { z, defineCollection, image } from "astro:content";
 const fonctions = defineCollection({
   schema: z.object({
     title: z.string(),
-    image: z.string().optional(),
+    image: z.string(),
   }),
 });
 const solutions = defineCollection({
   schema: z.object({
     title: z.string(),
-    image: z.string().optional(),
+    image: z.string(),
   }),
 });
 const blog = defineCollection({

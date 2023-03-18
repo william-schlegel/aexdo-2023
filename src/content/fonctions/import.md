@@ -1,6 +1,6 @@
 ---
 title: Importation de projets
-image: /desktop/volume.png
+image: /desktop/voronoi-3d.png
 ---
 ## Importer vos projets dans AEXDO
 

@@ -1,7 +1,7 @@
 ---
 title: "Arrêté du 21 décembre 2021"
 date: 2021-12-28
-image: "/src/assets/blog/arrete2112.webp"
+image: "/blog/arrete2112.webp"
 brief: "Arrêté du 21 décembre 2021 définissant le contenu des déclarations au système de gestion électronique des bordereaux de suivi de déchets"
 author: bernard
 ---
@@ -18,4 +18,4 @@ A quelques jours de l’entrée en vigueur de Trackdéchets - Ministère de la T
 
 ### Bordereau pour les déchets dangereux : CERFA 154971-2
 
-<img src="/blog/bordereau_dd.jpg" alt="Bordereau pour les déchets dangereux" width="400" height="400"/>
+<img src="/blog/bordereau_dd.jpg" alt="Bordereau pour les déchets dangereux" width="600" height="600">
